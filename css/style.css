@@ -1,9 +1,5 @@
 html { 
   background-color: #284abb ; 
-	/*-webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;*/
 }
 
 .button {
@@ -14,50 +10,59 @@ html {
   text-align: center;
   text-decoration: none;
   display: block;
-  font-size: 16px;
- border-radius: 12px; 
+  font-size: 20px;
+ border-radius: 15px;
+ font-weight: bold; 
+ cursor: pointer;
+   outline: none;
+   box-shadow: 0 7px #999;
+   	margin : 50px;
 }
 
 .chewy{
   margin: auto;
-  display: flex; /*could be block*/
-  width: 548px;
-	height: 177px;
+  display: flex;
+  width: auto;
+	max-height: 100px;
 	left: 590px;
 	top: 109px;
 	}
 	
 .greeting{
-	position: absolute;
-width: 1320px;
-height: 381px;
-left: 204px;
-top: 259px;
-
 font-family: 'Roboto', sans-serif;
 font-style: normal;
 font-weight: bold;
-font-size: 96px;
-line-height: 112px;
+font-size: 70px;
+line-height: 80px;
 text-align: center;
-
 color: #FFFFFF;
+margin: 50px;
 }
 	
-.animals{
-	position: absolute;
-width: 820px;
-height: 497px;
-left: 454px;
-top: 558px;
+.dogs{
+width: auto;
+height: 450px;
+margin: 30px;
 }
 
 
 .center{
-	margin : 0;
-	position: absolute;
-	top: 25%;
+	top: 50%;
 	left: 50%;
 	-ms-transform: translate(-50%, -50%);
 	transform: translate (-50%,-50%);
 	}
+	
+.container {
+  display: flex; /* or inline-flex */
+  flex-direction: column;
+  align-items: center;
+}
+
+.button:hover{
+	background-color: #294180;
+	color: #eeeded;
+	}
+.button:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
