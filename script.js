@@ -3,7 +3,8 @@ const SIZE = "size", HYPOALLERGENIC = "hypoallergenic",
         SHEDS = "sheds", OWNER_HOURS_HOME = "hours home",
         YARD = "yard", MEDICAL_CONDITIONS = "medical conditions",
         LOUD = "is loud", GETS_ALONG = "gets along with other",
-        SMALL_CHILDREN = "good around small children", YES="yes", NO="no"
+        SMALL_CHILDREN = "good around small children", YES="yes", NO="no",
+        LARGE_SIZE = "large", SMALL_SIZE = "small", MEDIUM_SIZE= "medium"
 
 /* dictionary mapping dog breeds as keys to values of dictionaries involving traits*/
 const breedTraitsData = {
@@ -25,6 +26,30 @@ function addBreed(breedName, size, isHypoallergenic, sheds, ownerHoursHome, need
         "good around small children":goodWithChildren}
 }
 
-addBreed("shitzu", "small", "yes", "no", 5, "no", "yes", "no", "yes", "yes")
-addBreed("basset hound", "large", NO, YES, 6, YES, YES, YES, YES, YES)
-console.log(breedTraitsData, pointsData)
+/*limits only 1 checkbox to be checked for all preferences */
+function singleCheck(){
+    function groupSingleCheck(checkbox) {/*limits only 1 box checked per group */
+        let checkboxes = document.getElementsByName(checkbox.getAttribute('name'));
+        checkboxes.forEach((item) => {
+            if (item !== checkbox) { item.checked = false; }
+        });
+    }
+    allCheckboxes = document.querySelectorAll('input[type=checkbox]')
+    allCheckboxes.forEach((checkbox) => {
+        checkbox.addEventListener("click", () => {groupSingleCheck(checkbox);})
+        }
+
+    );
+}
+
+/*returns array of 3 dog breeds with most points (descending order) 
+according to user preferences*/
+function getDogResultsArray(){
+    dogsArray = []
+
+    return dogsArray
+}
+
+addBreed("shitzu", SMALL_SIZE, "yes", "no", 5, "no", "yes", "no", "yes", "yes")
+addBreed("basset hound", LARGE_SIZE, NO, YES, 6, YES, YES, YES, YES, YES)
+singleCheck()
