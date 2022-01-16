@@ -100,6 +100,12 @@ function getDogResultsArray(){
 addBreed("shitzu", "small", "yes", "no", "yes", "no", "yes", "no", "yes", "yes")
 addBreed("basset hound", "large", "no", "yes", "no", "yes", "yes", "yes", "yes", "yes")
 addBreed("bichon frise", "small", "no", "no", "no", "yes", "no", "no", "yes", "yes")
+addBreed("doberman pinscher", "large", "no", "yes", "yes", "yes", "yes", "no", "yes", "yes")
+addBreed("chihuahua", "small", "no", "yes", "yes", "no", "no", "yes", "no", "no")
+addBreed("standard schnauzer", "medium", "yes", "no", "yes", "yes", "no", "no", "no", "yes")
+addBreed("beagle", "medium", "no", "yes", "yes", "no", "yes", "yes", "yes", "yes")
+addBreed("golden retriever", "large", "no", "yes", "yes", "yes", "yes", "no", "yes", "yes")
+addBreed("miniature poodle", "medium", "yes", "no", "yes", "no", "yes", "yes", "yes", "yes")
 singleCheck()
 
 const findDogButton = document.querySelector('#findDogButton')
