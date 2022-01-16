@@ -1,28 +1,27 @@
+var sizeSelection, allergicSelection, shedsSelection, yardSelection, healthSelection,
+loudSelection, getsAlongSelection, childrenSelection, protectiveSelection
 
-const SIZE = "size", HYPOALLERGENIC = "hypoallergenic",
-        SHEDS = "sheds", OWNER_HOURS_HOME = "hours home",
-        YARD = "yard", MEDICAL_CONDITIONS = "medical conditions",
-        LOUD = "is loud", GETS_ALONG = "gets along with other",
-        SMALL_CHILDREN = "good around small children", YES="yes", NO="no",
-        LARGE_SIZE = "large", SMALL_SIZE = "small", MEDIUM_SIZE= "medium"
 
 /* dictionary mapping dog breeds as keys to values of dictionaries involving traits*/
 const breedTraitsData = {
-    "bulldog":{SIZE:"medium", HYPOALLERGENIC:YES, SHEDS:YES, OWNER_HOURS_HOME:4,
-            YARD:YES, MEDICAL_CONDITIONS: YES, LOUD:YES, GETS_ALONG:YES, SMALL_CHILDREN:YES}
+    "bulldog":{
+        "size":"medium", "hypoallergenic":"no", "sheds":"yes", "protective":"yes",
+        "yard":"yes", "medical conditions": "yes", "loud okay":"yes", "gets along with other":"yes",
+        "good around small children":"yes"
+        }
 }
 
 const pointsData = {"bulldog":0}
 
 /*add a dog breed to breedTraitsData, initializes breed in breedPoints data */
-function addBreed(breedName, size, isHypoallergenic, sheds, ownerHoursHome, needsYard,
+function addBreed(breedName, size, isHypoallergenic, sheds, isProtective, needsYard,
                     hasMedicalConditions, isLoud, getsAlong, goodWithChildren){
     
     pointsData[breedName] = 0
 
     breedTraitsData[breedName] = {"size":size, "hypoallergenic":isHypoallergenic, "sheds":sheds, 
-        "hours home":ownerHoursHome,"yard":needsYard, "medical conditions": hasMedicalConditions, 
-        "is loud":isLoud, "gets along with other":getsAlong, 
+        "protective":isProtective,"yard":needsYard, "medical conditions": hasMedicalConditions, 
+        "loud okay":isLoud, "gets along with other":getsAlong, 
         "good around small children":goodWithChildren}
 }
 
@@ -42,14 +41,66 @@ function singleCheck(){
     );
 }
 
+/*handles when pet size, hypoallergenic, etc. boxes are left unchecked */
+function handleUncheckedBoxes(){
+    if( (sizeSelection = document.querySelector('input[name="size"]:checked')) != null){
+        sizeSelection = sizeSelection.value
+    }if( (allergicSelection = document.querySelector('input[name="hypoallergenic"]:checked')) != null){
+        allergicSelection = allergicSelection.value
+    }if( (shedsSelection = document.querySelector('input[name="sheds"]:checked')) != null){
+        shedsSelection = shedsSelection.value
+    }if( (yardSelection = document.querySelector('input[name="yard"]:checked')) != null){
+        yardSelection = yardSelection.value
+    }if( (healthSelection = document.querySelector('input[name="medical conditions"]:checked')) != null){
+        healthSelection = healthSelection.value
+    }if( (loudSelection = document.querySelector('input[name="loud okay"]:checked')) != null){
+        loudSelection = loudSelection.value
+    }if( (getsAlongSelection = document.querySelector('input[name="gets along with other"]:checked')) != null){
+        getsAlongSelection = getsAlongSelection.value
+    }if( (childrenSelection = document.querySelector('input[name="good around small children"]:checked')) != null){
+        childrenSelection = childrenSelection.value
+    }if( (protectiveSelection = document.querySelector('input[name="protective"]:checked')) != null){
+        protectiveSelection = protectiveSelection.value
+    }
+
+}
+
 /*returns array of 3 dog breeds with most points (descending order) 
 according to user preferences*/
 function getDogResultsArray(){
     dogsArray = []
+    handleUncheckedBoxes()
+
+    const userPreferences = {"size":sizeSelection, "hypoallergenic": allergicSelection, 
+                        "sheds":shedsSelection, "protective":protectiveSelection,"yard":yardSelection, 
+                        "medical conditions": healthSelection, "loud okay":loudSelection, 
+                        "gets along with other":getsAlongSelection, 
+                        "good around small children":childrenSelection}  
+
+    /*loop thru all breed key value pairs, if breed trait matches user preference, 
+    increment dogpoints */
+    for(var breedName in breedTraitsData){
+        currBreedTraitsMap = breedTraitsData[breedName]
+        for(var trait in currBreedTraitsMap){
+            if(userPreferences[trait] != null && userPreferences[trait] === currBreedTraitsMap[trait] ){
+                pointsData[breedName]++
+            }
+        }
+    }
+    /*sortedPointsData is sorted mapping of index to array (breedName, points)*/
+    const sortedPointsObject = Object.entries(pointsData).sort((a, b) => (a[1] > b[1] ? -1 : 1)).slice(0, 3)
+    for(var keyIndex in sortedPointsObject){/*push top dogBreed names to dogsArray */
+        dogsArray.push(sortedPointsObject[keyIndex][0])
+    }
+    console.log("top dogs", dogsArray)
 
     return dogsArray
 }
 
-addBreed("shitzu", SMALL_SIZE, "yes", "no", 5, "no", "yes", "no", "yes", "yes")
-addBreed("basset hound", LARGE_SIZE, NO, YES, 6, YES, YES, YES, YES, YES)
+addBreed("shitzu", "small", "yes", "no", "yes", "no", "yes", "no", "yes", "yes")
+addBreed("basset hound", "large", "no", "yes", "no", "yes", "yes", "yes", "yes", "yes")
+addBreed("bichon frise", "small", "no", "no", "no", "yes", "no", "no", "yes", "yes")
 singleCheck()
+
+const findDogButton = document.querySelector('#findDogButton')
+findDogButton.addEventListener('click', getDogResultsArray)
