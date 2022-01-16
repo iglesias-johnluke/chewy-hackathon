@@ -97,7 +97,7 @@ function getDogResultsArray(){
     return dogsArray
 }
 
-addBreed("shitzu", "small", "yes", "no", "yes", "no", "yes", "no", "yes", "yes")
+addBreed("shih tzu", "small", "yes", "no", "yes", "no", "yes", "no", "yes", "yes")
 addBreed("basset hound", "large", "no", "yes", "no", "yes", "yes", "yes", "yes", "yes")
 addBreed("bichon frise", "small", "no", "no", "no", "yes", "no", "no", "yes", "yes")
 singleCheck()
