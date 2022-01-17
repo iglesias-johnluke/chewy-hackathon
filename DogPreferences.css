@@ -8,10 +8,11 @@
 .wrapper {
     display: grid;
     grid-template-columns: 30% 30% 40%;
+    margin: 50px;
 }
 
 .question {
-    font-size : 20px;
+    font-size : 25px;
     font-weight : bold;
 }
 
@@ -47,3 +48,37 @@ h1{
     width:25%;
     left: 20%;
 }
+
+.title{
+font-family: 'Roboto', sans-serif;
+font-style: normal;
+font-weight: bold;
+color: #284abb;
+}
+
+
+.button {
+  background-color: #284abb;
+  border: none;
+  color: #eeeded;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 20px;
+ border-radius: 15px;
+ font-weight: bold; 
+ cursor: pointer;
+   outline: none;
+   box-shadow: 0 7px #999;
+   	margin : 50px;
+}
+
+.button:hover{
+	background-color: #294180;
+	color: #999;
+	}
+.button:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+ 
