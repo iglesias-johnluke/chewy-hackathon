@@ -81,3 +81,11 @@ img {
   max-height: 100%;
   max-width: 100%;
 }
+
+.title{
+font-family: 'Roboto', sans-serif;
+font-style: normal;
+font-weight: bold;
+color: #284abb;
+}
+	
