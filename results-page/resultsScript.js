@@ -41,6 +41,8 @@ function setSuggestionsOnclick(){
     var allDogResults = document.querySelectorAll(".dog-suggestion")
     allDogResults.forEach((suggestion) => {
         suggestion.addEventListener('click', () => {
+            var clickedBreed = document.querySelector('#'.concat(suggestion.id).concat(' h2')).textContent
+            localStorage.setItem("current profile", clickedBreed)
             window.open("../dogProfile/dogProfile.html")
         });
     })
