@@ -1,5 +1,5 @@
 .banner{
-    background-color: #2854c4;
+    background-color: #1249d3;
     margin : 0;
     padding: 0;
     height: 200 px;
@@ -25,7 +25,7 @@
 
 }
 
-#findDog{
+#findDogButton{
     background-color: #2854c4;
     color:white;
     text-align: center;
@@ -47,3 +47,11 @@ h1{
     width:25%;
     left: 20%;
 }
+
+.pref-body{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+

@@ -1,4 +1,5 @@
 
+
 var dogName = localStorage.getItem("current profile")
 var profileHeader = document.querySelector('.dogtag h1')
 var profileImage = document.querySelector('.dogtag img')
