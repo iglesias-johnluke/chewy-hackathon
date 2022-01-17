@@ -4,35 +4,19 @@
     padding: 0;
     height: 200 px;
 }
-
 .wrapper {
     display: grid;
     grid-template-columns: 30% 30% 40%;
 }
-
 p {
     font-size: 18px;
 }
-.left {
+.characteristics {
     display: flex; /* or inline-flex */
     flex-direction: column;
     align-items: left;
-    float: left;
-    width: 50%;
   }
-.right {
-    display: flex; /* or inline-flex */
-    flex-direction: column;
-    align-items: left;
-    float: left;
-    width: 50%;
-}
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-.left p{
+.characteristics p{
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
@@ -42,34 +26,40 @@ p {
     height: 200px;
     padding: 10px;
 }
-
 .dogtag {
+    display: inline-block;
     padding: 10px;
     margin-top: 25px;
     margin-bottom: 25px;
-    border: 5px solid #284abb;
+    border: 4px solid #5d78d1;
     border-radius: 5px;
+    height: auto;
 }
-
 .dogtag img {
-    max-width: 80px;
+    margin: auto;
+    width: 400px;
     height: auto;
     float: left;
     padding-right: 20px;
     padding-left: 20px;
     border-radius: 25%;
 }
-
 .dogtag h1 {
     width: 500px;
     float: left;
     left: 20%;
+    font-size: 34px;
 }
-.characteristics {
+.ch {
+    display: inline-block;
+    margin: 5px;
     font-size : 20px;
     font-weight : bold;
+    border: 2px solid #284abb;
+    border-radius: 10px;
+    background-color: rgba(199, 217, 255, 0.699);
+    padding: 7px;
 }
-
 .scrolling-row {
     display: flex;
     flex-wrap: nowrap;
@@ -88,10 +78,9 @@ p {
     text-align: center;
     background-color: #f1f1f1;
 }
-
 .card img{
     width: 85%;
-    height: auto;
+    height: 200px;
 }
 .price {
     color: red;
@@ -102,11 +91,21 @@ p {
     outline: 0;
     padding: 12px;
     color: white;
-    background-color: #000;
+    background-color: #5d78d1;
     text-align: center;
     cursor: pointer;
     width: 70%;
     font-size: 18px;
+}
+.card a{
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .description{
     font-size: 16px;
@@ -118,3 +117,12 @@ p {
 .checked {
     color: blue;
   }
+
+.dogtag img {
+    max-width: 80px;
+    height: auto;
+    float: left;
+    padding-right: 20px;
+    padding-left: 20px;
+    border-radius: 25%;
+}
