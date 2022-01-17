@@ -65,9 +65,8 @@ function handleUncheckedBoxes(){
 
 }
 
-/*returns array of 3 dog breeds with most points (descending order) 
-according to user preferences*/
-function getDogResultsArray(){
+/*returns list of top dog breed suggestions*/
+function getTopDogs(){
     dogsArray = []
     handleUncheckedBoxes()
 
@@ -92,9 +91,34 @@ function getDogResultsArray(){
     for(var keyIndex in sortedPointsObject){/*push top dogBreed names to dogsArray */
         dogsArray.push(sortedPointsObject[keyIndex][0])
     }
-    console.log("top dogs", dogsArray)
 
     return dogsArray
+}
+
+/*locally stores top 3 dogs data to be accessed across website
+and  */
+function storeTopDogs(){
+    Storage.prototype.setObj = function(key, obj) {
+        return this.setItem(key, JSON.stringify(obj))
+    }
+    Storage.prototype.getObj = function(key) {
+        return JSON.parse(this.getItem(key))
+    }
+    var dogsArray = getTopDogs()
+    for(var i in dogsArray){/*store each breedName with traits data locally */
+        var breedName = dogsArray[i]
+        localStorage.setObj(breedName, breedTraitsData[breedName]);
+    }
+
+    
+    
+}
+
+/*opens results.html, stores top dogs */
+function openResultsPage(){
+    storeTopDogs()
+    window.open('results-page/results.html')
+
 }
 
 addBreed("shih tzu", "small", "yes", "no", "yes", "no", "yes", "no", "yes", "yes")
@@ -106,7 +130,9 @@ addBreed("standard schnauzer", "medium", "yes", "no", "yes", "yes", "no", "no", 
 addBreed("beagle", "medium", "no", "yes", "yes", "no", "yes", "yes", "yes", "yes")
 addBreed("golden retriever", "large", "no", "yes", "yes", "yes", "yes", "no", "yes", "yes")
 addBreed("miniature poodle", "medium", "yes", "no", "yes", "no", "yes", "yes", "yes", "yes")
+
 singleCheck()
 
 const findDogButton = document.querySelector('#findDogButton')
-findDogButton.addEventListener('click', getDogResultsArray)
+findDogButton.addEventListener('click', openResultsPage)
+
