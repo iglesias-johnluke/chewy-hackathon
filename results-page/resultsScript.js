@@ -36,8 +36,6 @@ function displaySuggestions(){
     }
 }
 
-setBreedData()
-displaySuggestions()
 
 function setSuggestionsOnclick(){
     var allDogResults = document.querySelectorAll(".dog-suggestion")
@@ -47,3 +45,7 @@ function setSuggestionsOnclick(){
         });
     })
 }
+
+setBreedData()
+displaySuggestions()
+setSuggestionsOnclick()
