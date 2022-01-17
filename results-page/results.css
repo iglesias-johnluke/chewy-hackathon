@@ -31,20 +31,20 @@ float: right;
 }
 
 
-.firstPet-container{
+#firstPet-container {
   background-color: #254DBB;
-  width: 10px;
-  padding: 15px;
-  border: 180px solid #254DBB; 
+  width: 350px;
+  border: 70px solid #254DBB; 
+
   border-radius: 25px;
   float:left; 
   clear: left;
 
 }
 
-.secondPet-container{
+#secondPet-container{
   background-color: #254DBB;
-  width: 350px;
+  width: 250px;
   padding: 10px;
   border: 70px solid #254DBB; 
   border-radius: 25px;
@@ -53,9 +53,9 @@ float: right;
 
 }
 
-.thirdPet-container{
+#thirdPet-container{
   background-color: #254DBB;
-  width: 350px;
+  width: 250px;
   padding: 10px;
   border: 70px solid #254DBB; 
   border-radius: 25px;
@@ -75,4 +75,9 @@ float: right;
 	}
 	
 
-	
+img {
+  width: auto;
+  height : auto;
+  max-height: 100%;
+  max-width: 100%;
+}

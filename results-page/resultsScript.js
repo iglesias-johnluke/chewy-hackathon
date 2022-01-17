@@ -18,4 +18,15 @@ function setBreedData(){
         }
     }
 }
+
+var suggestionContainers = document.querySelectorAll(".dog-suggestion")
 setBreedData()
+
+var containerIndex = 0
+for(var breedName in topBreedData){
+    console.log(breedName)
+    var img = document.createElement("img");
+    img.src = "../images/".concat(breedName).concat('.png')
+    suggestionContainers[containerIndex].appendChild(img)
+    containerIndex++
+}
