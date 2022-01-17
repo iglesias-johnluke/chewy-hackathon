@@ -1,0 +1,68 @@
+html { 
+  background-color: #284abb ; 
+}
+
+.button {
+  background-color: #eeeded;
+  border: none;
+  color: #284abb;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 20px;
+ border-radius: 15px;
+ font-weight: bold; 
+ cursor: pointer;
+   outline: none;
+   box-shadow: 0 7px #999;
+   	margin : 50px;
+}
+
+.chewy{
+  margin: auto;
+  display: flex;
+  width: auto;
+	max-height: 100px;
+	left: 590px;
+	top: 109px;
+	}
+	
+.greeting{
+font-family: 'Roboto', sans-serif;
+font-style: normal;
+font-weight: bold;
+font-size: 70px;
+line-height: 80px;
+text-align: center;
+color: #FFFFFF;
+margin: 50px;
+}
+	
+.dogs{
+width: auto;
+height: 450px;
+margin: 30px;
+}
+
+
+.center{
+	top: 50%;
+	left: 50%;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate (-50%,-50%);
+	}
+	
+.container {
+  display: flex; /* or inline-flex */
+  flex-direction: column;
+  align-items: center;
+}
+
+.button:hover{
+	background-color: #294180;
+	color: #eeeded;
+	}
+.button:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);

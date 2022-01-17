@@ -1,0 +1,24 @@
+{
+  "name": "chewy-2022-hackathon-team-d",
+  "version": "1.0.0",
+  "description": "Dog Breed Recommender Interface   * recommends dog breeds according to user preferences such as weight, obedience, etc",
+  "main": "DogPreferences.html",
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skwan-chwy/chewy-2022-hackathon-team-d.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skwan-chwy/chewy-2022-hackathon-team-d/issues"
+  },
+  "homepage": "https://github.com/skwan-chwy/chewy-2022-hackathon-team-d#DogPreferences.html",
+  "devDependencies": {
+    "http-server": "^14.1.0"
+  }
+}
