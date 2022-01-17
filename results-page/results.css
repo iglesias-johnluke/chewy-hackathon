@@ -88,4 +88,15 @@ font-style: normal;
 font-weight: bold;
 color: #284abb;
 }
+
+.dog-suggestion{
+  display: flex;
+  flex-direction: column;
+}
 	
+.top-dog-header{
+  color: white;
+  text-align:center;
+  font-size:xx-large;
+  
+}

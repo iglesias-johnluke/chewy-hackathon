@@ -25,8 +25,12 @@ function displaySuggestions(){
 
     for(var breedName in topBreedData){
         var img = document.createElement("img");
+        var h2 = document.createElement("h2")
+        h2.textContent = breedName
+        h2.className = "top-dog-header"
         img.src = "../images/".concat(breedName).concat('.png')
-    
+        
+        suggestionContainers[containerIndex].appendChild(h2)
         suggestionContainers[containerIndex].appendChild(img)
         containerIndex++
     }
@@ -34,3 +38,12 @@ function displaySuggestions(){
 
 setBreedData()
 displaySuggestions()
+
+function setSuggestionsOnclick(){
+    var allDogResults = document.querySelectorAll(".dog-suggestion")
+    allDogResults.forEach((suggestion) => {
+        suggestion.addEventListener('click', () => {
+            window.open("../dogProfile/dogProfile.html")
+        });
+    })
+}
