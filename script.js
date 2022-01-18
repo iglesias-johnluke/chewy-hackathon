@@ -105,11 +105,12 @@ function storeTopDogs(){
         return JSON.parse(this.getItem(key))
     }
     var dogsArray = getTopDogs()
+    localStorage.clear()
     for(var i in dogsArray){/*store each breedName with traits data locally */
         var breedName = dogsArray[i]
+
         localStorage.setObj(breedName, breedTraitsData[breedName]);
     }
-
     
     
 }

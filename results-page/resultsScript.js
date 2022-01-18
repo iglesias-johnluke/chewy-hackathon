@@ -19,14 +19,35 @@ function setBreedData(){
     }
 }
 
-var suggestionContainers = document.querySelectorAll(".dog-suggestion")
-setBreedData()
+function displaySuggestions(){
+    var suggestionContainers = document.querySelectorAll(".dog-suggestion")
+    var containerIndex = 0
 
-var containerIndex = 0
-for(var breedName in topBreedData){
-    console.log(breedName)
-    var img = document.createElement("img");
-    img.src = "../images/".concat(breedName).concat('.png')
-    suggestionContainers[containerIndex].appendChild(img)
-    containerIndex++
+    for(var breedName in topBreedData){
+        var img = document.createElement("img");
+        var h2 = document.createElement("h2")
+        h2.textContent = breedName
+        h2.className = "top-dog-header"
+        img.src = "../images/".concat(breedName).concat('.png')
+        
+        suggestionContainers[containerIndex].appendChild(h2)
+        suggestionContainers[containerIndex].appendChild(img)
+        containerIndex++
+    }
 }
+
+
+function setSuggestionsOnclick(){
+    var allDogResults = document.querySelectorAll(".dog-suggestion")
+    allDogResults.forEach((suggestion) => {
+        suggestion.addEventListener('click', () => {
+            var clickedBreed = document.querySelector('#'.concat(suggestion.id).concat(' h2')).textContent
+            localStorage.setItem("current profile", clickedBreed)
+            window.open("../dogProfile/dogProfile.html")
+        });
+    })
+}
+
+setBreedData()
+displaySuggestions()
+setSuggestionsOnclick()
